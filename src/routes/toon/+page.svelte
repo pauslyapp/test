@@ -1,7 +1,9 @@
+<script>
+	import Canvas from './Canvas.svelte';
+</script>
+
 <div class="canvas">
-	{#await import('$lib/components/Canvas.svelte') then c}
-		<svelte:component this={c.default} />
-	{/await}
+	<Canvas />
 </div>
 
 <style lang="postcss">
