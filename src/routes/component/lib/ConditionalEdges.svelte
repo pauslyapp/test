@@ -94,7 +94,7 @@
 
 	const thickLineMaterial = new ConditionalLineMaterial({
 		color: 'black',
-		linewidth: 0.002
+		linewidth: 0.005
 	}) as unknown as LineMaterial
 
 	material = new ShaderMaterial(ConditionalEdgesShader)
