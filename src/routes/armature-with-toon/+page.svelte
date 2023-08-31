@@ -38,14 +38,14 @@
 </script>
 
 <div class="canvas">
-  <Canvas>
+  <Canvas toneMapping={0}>
     <Effects />
     <T.PerspectiveCamera makeDefault position={[0, 3, 5]} fov={20}>
       <OrbitControls enableZoom={true} target={[0, 0.9, 0]} enableDamping />
     </T.PerspectiveCamera>
     <!-- <T.MeshToonMaterial color={[255, 0, 0]} />-->
 
-    <T.DirectionalLight position={[10, 5, 5]} intensity={4} />
+    <T.DirectionalLight position={[10, 5, 5]} intensity={3.5} />
     <Armature bind:actions />
 
     <!-- <Armature /> -->

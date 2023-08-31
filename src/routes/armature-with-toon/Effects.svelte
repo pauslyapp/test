@@ -8,7 +8,7 @@
   useRender((_, delta) => {
     const outlineEffect = new OutlineEffect(renderer, {
       //
-      defaultThickness: 0.0035,
+      defaultThickness: 0.004,
       defaultColor: [0.05, 0.1, 0.1],
       // defaultThickness: 0.001,
       //

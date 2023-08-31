@@ -199,7 +199,7 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
             geometry={$gltf.nodes['Acc_T-Shirt'].geometry}
             skeleton={$gltf.nodes['Acc_T-Shirt'].skeleton}
           >
-            <T.MeshToonMaterial color="#7f7" />
+            <T.MeshToonMaterial color="hotpink" />
           </T.SkinnedMesh>
           <T.Group name="Cylinder009">
             <T.SkinnedMesh
