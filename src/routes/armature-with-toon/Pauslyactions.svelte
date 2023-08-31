@@ -4,15 +4,12 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
 -->
 
 <script lang="ts">
+  import { dev } from '$app/environment'
+  import { T, forwardEventHandlers, type Events, type Props, type Slots } from '@threlte/core'
+  import { useGltf, useGltfAnimations } from '@threlte/extras'
+  import { derived } from 'svelte/store'
   import * as THREE from 'three'
   import { Group } from 'three'
-  import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core'
-  import { Edges, useGltf, useGltfAnimations } from '@threlte/extras'
-  import { building } from '$app/environment'
-  import ConditionalEdges from '../component/lib/ConditionalEdges.svelte'
-  import StyledMesh from './StyledMesh.svelte'
-  import { derived } from 'svelte/store'
-  import EdgesTest from './EdgesTest.svelte'
 
   type $$Props = Props<THREE.Group>
   type $$Events = Events<THREE.Group>
@@ -113,7 +110,7 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
   }
 
   const gltfOriginal = useGltf<GLTFResult>(
-    (building ? '/test/' : '/') + 'pauslyactions-transformed.glb',
+    (dev ? '/' : '/test/') + 'pauslyactions-transformed.glb',
     {
       useDraco: true,
     },
