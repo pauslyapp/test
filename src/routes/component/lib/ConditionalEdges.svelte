@@ -22,7 +22,7 @@
 
 	const parent = useParent()
 	if (!$parent || $parent.type !== 'Mesh')
-		throw new Error('Edges: component must be a child of a Mesh')
+		throw new Error(`Edges: component must be a child of a Mesh but was child of ${$parent?.type}`)
 
 	const parentMesh = $parent as Mesh
 

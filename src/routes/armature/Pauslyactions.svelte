@@ -4,179 +4,179 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
 -->
 
 <script lang="ts">
-	import type * as THREE from 'three'
-	import { Group } from 'three'
-	import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core'
-	import { useGltf, useGltfAnimations } from '@threlte/extras'
-	import { building } from '$app/environment'
+  import type * as THREE from 'three'
+  import { Group } from 'three'
+  import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core'
+  import { useGltf, useGltfAnimations } from '@threlte/extras'
+  import { building } from '$app/environment'
 
-	type $$Props = Props<THREE.Group>
-	type $$Events = Events<THREE.Group>
-	type $$Slots = Slots<THREE.Group> & { fallback: {}; error: { error: any }; body: any }
+  type $$Props = Props<THREE.Group>
+  type $$Events = Events<THREE.Group>
+  type $$Slots = Slots<THREE.Group> & { fallback: {}; error: { error: any }; body: any }
 
-	export const ref = new Group()
+  export const ref = new Group()
 
-	type ActionName = 'Deadlifts' | 'PoseLib' | 'Squats' | 'Squats2' | 'Squats3'
-	type GLTFResult = {
-		nodes: {
-			ToesL: THREE.Mesh
-			Sphere006: THREE.Mesh
-			Cube025: THREE.Mesh
-			Cylinder010_1: THREE.Mesh
-			Cylinder024: THREE.Mesh
-			Cylinder001_2: THREE.Mesh
-			Cylinder005: THREE.Mesh
-			Sphere: THREE.Mesh
-			Cylinder004: THREE.Mesh
-			Cylinder012: THREE.Mesh
-			Cylinder016: THREE.Mesh
-			Cylinder018: THREE.Mesh
-			Cylinder033: THREE.Mesh
-			Sphere014: THREE.Mesh
-			Cube: THREE.Mesh
-			Hair: THREE.Mesh
-			Cube003: THREE.Mesh
-			Sphere001: THREE.Mesh
-			Cylinder: THREE.Mesh
-			Sphere010: THREE.Mesh
-			Cylinder011: THREE.Mesh
-			ToesL001: THREE.Mesh
-			Sphere013: THREE.Mesh
-			Cube004: THREE.Mesh
-			Cylinder029: THREE.Mesh
-			Cylinder028: THREE.Mesh
-			Cylinder025: THREE.Mesh
-			Cylinder027: THREE.Mesh
-			Sphere012: THREE.Mesh
-			Cylinder021: THREE.Mesh
-			Cylinder023_1: THREE.Mesh
-			Cylinder022_1: THREE.Mesh
-			Cylinder026: THREE.Mesh
-			Cylinder002: THREE.Mesh
-			Cylinder006: THREE.Mesh
-			Cylinder006_1: THREE.Mesh
-			Cylinder035: THREE.Mesh
-			Cylinder036: THREE.Mesh
-			HandR002: THREE.Mesh
-			HandL_1: THREE.Mesh
-			Cylinder031: THREE.Mesh
-			Sphere009: THREE.Mesh
-			Sphere005: THREE.Mesh
-			Cylinder020: THREE.Mesh
-			Sphere004: THREE.Mesh
-			Cylinder008: THREE.Mesh
-			Cylinder019_1: THREE.Mesh
-			Upper_ArmL001: THREE.Mesh
-			Sphere035: THREE.Mesh
-			Cylinder015: THREE.Mesh
-			HandR001: THREE.Mesh
-			HandR_1: THREE.Mesh
-			Cylinder030: THREE.Mesh
-			Sphere011: THREE.Mesh
-			Sphere008: THREE.Mesh
-			Cylinder017: THREE.Mesh
-			Sphere007: THREE.Mesh
-			Cylinder013: THREE.Mesh
-			Cylinder014: THREE.Mesh
-			Upper_ArmL_1: THREE.Mesh
-			Sphere036: THREE.Mesh
-			Cylinder032: THREE.Mesh
-			['Acc_T-Shirt']: THREE.SkinnedMesh
-			Cylinder001: THREE.SkinnedMesh
-			Cylinder001_1: THREE.SkinnedMesh
-			Cylinder034: THREE.SkinnedMesh
-			Cylinder037: THREE.SkinnedMesh
-			Stomach_1: THREE.SkinnedMesh
-			Belly: THREE.Bone
-			Elbow_Controller_R: THREE.Bone
-			Elbow_Controller_L: THREE.Bone
-			Knee_Pole_R: THREE.Bone
-			Knee_Pole_L: THREE.Bone
-			Foot_Controller_R: THREE.Bone
-			Foot_Controller_L: THREE.Bone
-			ShoulderL: THREE.Bone
-			ShoulderR: THREE.Bone
-			Hand_Controller_R: THREE.Bone
-			Hand_Controller_L: THREE.Bone
-			Neck_Controller_Handle: THREE.Bone
-			neutral_bone: THREE.Bone
-		}
-		materials: {
-			['Dummy body']: THREE.MeshStandardMaterial
-			['T-Shirt']: THREE.MeshStandardMaterial
-			['Dummy body']: THREE.MeshStandardMaterial
-		}
-	}
+  type ActionName = 'Deadlifts' | 'PoseLib' | 'Squats' | 'Squats2' | 'Squats3'
+  type GLTFResult = {
+    nodes: {
+      ToesL: THREE.Mesh
+      Sphere006: THREE.Mesh
+      Cube025: THREE.Mesh
+      Cylinder010_1: THREE.Mesh
+      Cylinder024: THREE.Mesh
+      Cylinder001_2: THREE.Mesh
+      Cylinder005: THREE.Mesh
+      Sphere: THREE.Mesh
+      Cylinder004: THREE.Mesh
+      Cylinder012: THREE.Mesh
+      Cylinder016: THREE.Mesh
+      Cylinder018: THREE.Mesh
+      Cylinder033: THREE.Mesh
+      Sphere014: THREE.Mesh
+      Cube: THREE.Mesh
+      Hair: THREE.Mesh
+      Cube003: THREE.Mesh
+      Sphere001: THREE.Mesh
+      Cylinder: THREE.Mesh
+      Sphere010: THREE.Mesh
+      Cylinder011: THREE.Mesh
+      ToesL001: THREE.Mesh
+      Sphere013: THREE.Mesh
+      Cube004: THREE.Mesh
+      Cylinder029: THREE.Mesh
+      Cylinder028: THREE.Mesh
+      Cylinder025: THREE.Mesh
+      Cylinder027: THREE.Mesh
+      Sphere012: THREE.Mesh
+      Cylinder021: THREE.Mesh
+      Cylinder023_1: THREE.Mesh
+      Cylinder022_1: THREE.Mesh
+      Cylinder026: THREE.Mesh
+      Cylinder002: THREE.Mesh
+      Cylinder006: THREE.Mesh
+      Cylinder006_1: THREE.Mesh
+      Cylinder035: THREE.Mesh
+      Cylinder036: THREE.Mesh
+      HandR002: THREE.Mesh
+      HandL_1: THREE.Mesh
+      Cylinder031: THREE.Mesh
+      Sphere009: THREE.Mesh
+      Sphere005: THREE.Mesh
+      Cylinder020: THREE.Mesh
+      Sphere004: THREE.Mesh
+      Cylinder008: THREE.Mesh
+      Cylinder019_1: THREE.Mesh
+      Upper_ArmL001: THREE.Mesh
+      Sphere035: THREE.Mesh
+      Cylinder015: THREE.Mesh
+      HandR001: THREE.Mesh
+      HandR_1: THREE.Mesh
+      Cylinder030: THREE.Mesh
+      Sphere011: THREE.Mesh
+      Sphere008: THREE.Mesh
+      Cylinder017: THREE.Mesh
+      Sphere007: THREE.Mesh
+      Cylinder013: THREE.Mesh
+      Cylinder014: THREE.Mesh
+      Upper_ArmL_1: THREE.Mesh
+      Sphere036: THREE.Mesh
+      Cylinder032: THREE.Mesh
+      ['Acc_T-Shirt']: THREE.SkinnedMesh
+      Cylinder001: THREE.SkinnedMesh
+      Cylinder001_1: THREE.SkinnedMesh
+      Cylinder034: THREE.SkinnedMesh
+      Cylinder037: THREE.SkinnedMesh
+      Stomach_1: THREE.SkinnedMesh
+      Belly: THREE.Bone
+      Elbow_Controller_R: THREE.Bone
+      Elbow_Controller_L: THREE.Bone
+      Knee_Pole_R: THREE.Bone
+      Knee_Pole_L: THREE.Bone
+      Foot_Controller_R: THREE.Bone
+      Foot_Controller_L: THREE.Bone
+      ShoulderL: THREE.Bone
+      ShoulderR: THREE.Bone
+      Hand_Controller_R: THREE.Bone
+      Hand_Controller_L: THREE.Bone
+      Neck_Controller_Handle: THREE.Bone
+      neutral_bone: THREE.Bone
+    }
+    materials: {
+      ['Dummy body']: THREE.MeshStandardMaterial
+      ['T-Shirt']: THREE.MeshStandardMaterial
+      ['Dummy body']: THREE.MeshStandardMaterial
+    }
+  }
 
-	const gltf = useGltf<GLTFResult>((building ? '/test/' : '/') + 'pauslyactions-transformed.glb', {
-		useDraco: true
-	})
-	export const { actions, mixer } = useGltfAnimations<ActionName>(gltf, ref)
+  const gltf = useGltf<GLTFResult>((building ? '/test/' : '/') + 'pauslyactions-transformed.glb', {
+    useDraco: true
+  })
+  export const { actions, mixer } = useGltfAnimations<ActionName>(gltf, ref)
 
-	const component = forwardEventHandlers()
+  const component = forwardEventHandlers()
 
-	$: console.log($gltf?.nodes['Acc_T-Shirt'].skeleton === $gltf?.nodes.Cylinder001_1.skeleton)
-	$: console.log($gltf?.nodes.Belly)
+  $: console.log($gltf?.nodes['Acc_T-Shirt'].skeleton === $gltf?.nodes.Cylinder001_1.skeleton)
+  $: console.log($gltf?.nodes.Belly)
 </script>
 
 <T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
-	{#await gltf}
-		<slot name="fallback" />
-	{:then gltf}
-		<T.Group name="Scene">
-			<T.Group name="Armature" position={[0.15, 0, -0.04]}>
-				<T is={gltf.nodes.Belly}>
-					<slot name="body" />
-				</T>
-				<T is={gltf.nodes.Elbow_Controller_R} />
-				<T is={gltf.nodes.Elbow_Controller_L} />
-				<T is={gltf.nodes.Knee_Pole_R} />
-				<T is={gltf.nodes.Knee_Pole_L} />
-				<T is={gltf.nodes.Foot_Controller_R} />
-				<T is={gltf.nodes.Foot_Controller_L} />
-				<T is={gltf.nodes.ShoulderL} />
-				<T is={gltf.nodes.ShoulderR} />
-				<T is={gltf.nodes.Hand_Controller_R} />
-				<T is={gltf.nodes.Hand_Controller_L} />
-				<T is={gltf.nodes.Neck_Controller_Handle} />
-				<T is={gltf.nodes.neutral_bone} />
-				<T.SkinnedMesh
-					name="Acc_T-Shirt"
-					geometry={gltf.nodes['Acc_T-Shirt'].geometry}
-					material={gltf.materials['T-Shirt']}
-					skeleton={gltf.nodes['Acc_T-Shirt'].skeleton}
-				/>
-				<T.Group name="Cylinder009">
-					<T.SkinnedMesh
-						name="Cylinder001_1"
-						geometry={gltf.nodes.Cylinder001_1.geometry}
-						material={gltf.materials['Dummy body']}
-						skeleton={gltf.nodes.Cylinder001_1.skeleton}
-					/>
-				</T.Group>
-				<T.SkinnedMesh
-					name="Cylinder034"
-					geometry={gltf.nodes.Cylinder034.geometry}
-					material={gltf.materials['Dummy body']}
-					skeleton={gltf.nodes.Cylinder034.skeleton}
-				/>
-				<T.SkinnedMesh
-					name="Cylinder037"
-					geometry={gltf.nodes.Cylinder037.geometry}
-					material={gltf.materials['Dummy body']}
-					skeleton={gltf.nodes.Cylinder037.skeleton}
-				/>
-				<T.SkinnedMesh
-					name="Stomach_1"
-					geometry={gltf.nodes.Stomach_1.geometry}
-					material={gltf.materials['Dummy body']}
-					skeleton={gltf.nodes.Stomach_1.skeleton}
-				/>
-			</T.Group>
-		</T.Group>
-	{:catch error}
-		<slot name="error" {error} />
-	{/await}
+  {#await gltf}
+    <slot name="fallback" />
+  {:then gltf}
+    <T.Group name="Scene">
+      <T.Group name="Armature" position={[0.15, 0, -0.04]}>
+        <T is={gltf.nodes.Belly}>
+          <slot name="body" />
+        </T>
+        <T is={gltf.nodes.Elbow_Controller_R} />
+        <T is={gltf.nodes.Elbow_Controller_L} />
+        <T is={gltf.nodes.Knee_Pole_R} />
+        <T is={gltf.nodes.Knee_Pole_L} />
+        <T is={gltf.nodes.Foot_Controller_R} />
+        <T is={gltf.nodes.Foot_Controller_L} />
+        <T is={gltf.nodes.ShoulderL} />
+        <T is={gltf.nodes.ShoulderR} />
+        <T is={gltf.nodes.Hand_Controller_R} />
+        <T is={gltf.nodes.Hand_Controller_L} />
+        <T is={gltf.nodes.Neck_Controller_Handle} />
+        <T is={gltf.nodes.neutral_bone} />
+        <T.SkinnedMesh
+          name="Acc_T-Shirt"
+          geometry={gltf.nodes['Acc_T-Shirt'].geometry}
+          material={gltf.materials['T-Shirt']}
+          skeleton={gltf.nodes['Acc_T-Shirt'].skeleton}
+        />
+        <T.Group name="Cylinder009">
+          <T.SkinnedMesh
+            name="Cylinder001_1"
+            geometry={gltf.nodes.Cylinder001_1.geometry}
+            material={gltf.materials['Dummy body']}
+            skeleton={gltf.nodes.Cylinder001_1.skeleton}
+          />
+        </T.Group>
+        <T.SkinnedMesh
+          name="Cylinder034"
+          geometry={gltf.nodes.Cylinder034.geometry}
+          material={gltf.materials['Dummy body']}
+          skeleton={gltf.nodes.Cylinder034.skeleton}
+        />
+        <T.SkinnedMesh
+          name="Cylinder037"
+          geometry={gltf.nodes.Cylinder037.geometry}
+          material={gltf.materials['Dummy body']}
+          skeleton={gltf.nodes.Cylinder037.skeleton}
+        />
+        <T.SkinnedMesh
+          name="Stomach_1"
+          geometry={gltf.nodes.Stomach_1.geometry}
+          material={gltf.materials['Dummy body']}
+          skeleton={gltf.nodes.Stomach_1.skeleton}
+        />
+      </T.Group>
+    </T.Group>
+  {:catch error}
+    <slot name="error" {error} />
+  {/await}
 
-	<slot {ref} />
+  <slot {ref} />
 </T>

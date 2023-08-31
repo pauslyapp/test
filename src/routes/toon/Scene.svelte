@@ -147,7 +147,7 @@ Command: npx @threlte/gltf@1.0.1 pausly.glb --transform --types
 						geometry={gltf.nodes.Cylinder001.geometry}
 						material={gltf.materials['Dummy body']}
 					>
-						<T.MeshBasicMaterial color={new THREE.Color(0xff3e00)} toneMapped={false} />
+						<T.MeshToonMaterial color="hotpink" />
 						<Edges thresholdAngle={20} color="black" scale={1.01} />
 					</T.Mesh>
 					<T.Mesh
@@ -155,7 +155,7 @@ Command: npx @threlte/gltf@1.0.1 pausly.glb --transform --types
 						geometry={gltf.nodes.Cylinder001_1.geometry}
 						material={gltf.materials['Dummy body']}
 					>
-						<T.MeshBasicMaterial color={new THREE.Color(0xff3e00)} toneMapped={false} />
+						<T.MeshToonMaterial color="hotpink" />
 						<Edges thresholdAngle={20} color="black" scale={1.02} />
 					</T.Mesh>
 				</T.Group>
@@ -172,11 +172,11 @@ Command: npx @threlte/gltf@1.0.1 pausly.glb --transform --types
 					geometry={gltf.nodes.Cylinder037.geometry}
 					skeleton={gltf.nodes.Cylinder037.skeleton}
 				>
-					<T.MeshBasicMaterial color={new THREE.Color(0xff3e00)} toneMapped={false} />
+					<T.MeshToonMaterial color="#333" />
 					<!-- <Edges thresholdAngle={20} color="black" /> -->
 				</T.Mesh>
 				<T.Mesh name="Stomach_1" geometry={gltf.nodes.Stomach_1.geometry}>
-					<T.MeshBasicMaterial color={new THREE.Color(0xaafe00)} toneMapped={false} />
+					<T.MeshToonMaterial color="hotpink" />
 					<!-- <Edges thresholdAngle={20} color="black" /> -->
 				</T.Mesh>
 			</T.Group>
