@@ -5,7 +5,14 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
 
 <script lang="ts">
   import { dev } from '$app/environment'
-  import { T, forwardEventHandlers, type Events, type Props, type Slots } from '@threlte/core'
+  import {
+    T,
+    forwardEventHandlers,
+    type Events,
+    type Props,
+    type Slots,
+    useLoader,
+  } from '@threlte/core'
   import { useGltf, useGltfAnimations } from '@threlte/extras'
   import { derived } from 'svelte/store'
   import * as THREE from 'three'
@@ -115,8 +122,9 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
       useDraco: true,
     },
   )
-  const gltf = derived(gltfOriginal, (gltf) => {
-    if (!gltf) return
+  const texture = useLoader(THREE.TextureLoader).load((dev ? '/' : '/test/') + 'threeTone.jpg')
+  const gltf = derived([gltfOriginal, texture], ([gltf, texture]) => {
+    if (!gltf || !texture) return
 
     const replaceMaterial = (nodes: THREE.Mesh[]) => {
       for (const node of nodes) {
@@ -138,9 +146,15 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
                 !excluded.find((reg) => reg.test(node.name))
               ? '#444'
               : '#FFE893'
+          texture.minFilter = THREE.NearestFilter
+          texture.magFilter = THREE.NearestFilter
           ;(node as THREE.Mesh).material = new THREE.MeshToonMaterial({
             color: color,
+            // gradientMap: texture,
+
             // emissive: color,
+            gradientMap: texture,
+            // map: texture,
           })
         }
         if (node.children && node.children.length > 0) {
@@ -163,7 +177,7 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
   {#await gltfOriginal}
     <slot name="fallback" />
   {:then gltfOriginal}
-    {#if $gltf}
+    {#if $gltf && $texture}
       <T.Group name="Scene">
         <T.Group name="Armature" position={[0.15, 0, -0.04]}>
           <T is={$gltf.nodes.Belly} />
@@ -199,7 +213,7 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
             geometry={$gltf.nodes['Acc_T-Shirt'].geometry}
             skeleton={$gltf.nodes['Acc_T-Shirt'].skeleton}
           >
-            <T.MeshToonMaterial color="hotpink" />
+            <T.MeshToonMaterial color="hotpink" gradientMap={$texture} />
           </T.SkinnedMesh>
           <T.Group name="Cylinder009">
             <T.SkinnedMesh

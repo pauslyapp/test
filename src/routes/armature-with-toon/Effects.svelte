@@ -1,7 +1,8 @@
 <script>
-  import { useRender, useThrelte } from '@threlte/core'
+  import { useLoader, useRender, useThrelte } from '@threlte/core'
   import { OutlineEffect } from 'three/examples/jsm/effects/OutlineEffect'
   const { scene, renderer, camera, size } = useThrelte()
+  import { TextureLoader } from 'three'
   // To use the EffectComposer we need to pass arguments to the
   // default WebGLRenderer: https://github.com/pmndrs/postprocessing#usage
 

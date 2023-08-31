@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Canvas, T } from '@threlte/core'
+  import { Canvas, T, useLoader } from '@threlte/core'
   import { OrbitControls } from '@threlte/extras'
   import type { ComponentProps } from 'svelte'
   import Armature from './Pauslyactions.svelte'
@@ -45,7 +45,7 @@
     </T.PerspectiveCamera>
     <!-- <T.MeshToonMaterial color={[255, 0, 0]} />-->
 
-    <T.DirectionalLight position={[10, 5, 5]} intensity={3.5} />
+    <T.DirectionalLight position={[-10, 5, 5]} intensity={3.5} />
     <Armature bind:actions />
 
     <!-- <Armature /> -->
