@@ -136,7 +136,7 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
           ]
           const color =
             node.name === 'Hair'
-              ? '#eee'
+              ? '#fff'
               : node.name.match(/^(Sphere|Cylinder)/) &&
                 !excluded.find((reg) => reg.test(node.name))
               ? '#444'
@@ -202,7 +202,7 @@ Command: npx @threlte/gltf@1.0.1 pauslyactions.glb --transform --types
             geometry={$gltf.nodes['Acc_T-Shirt'].geometry}
             skeleton={$gltf.nodes['Acc_T-Shirt'].skeleton}
           >
-            <T.MeshToonMaterial color="#fff" />
+            <T.MeshToonMaterial color="#7f7" />
           </T.SkinnedMesh>
           <T.Group name="Cylinder009">
             <T.SkinnedMesh

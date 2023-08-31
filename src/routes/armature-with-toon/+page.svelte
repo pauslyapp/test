@@ -3,6 +3,7 @@
   import { OrbitControls } from '@threlte/extras'
   import type { ComponentProps } from 'svelte'
   import Armature from './Pauslyactions.svelte'
+  import Effects from './Effects.svelte'
 
   let actions: ComponentProps<Armature>['actions']
 
@@ -38,6 +39,7 @@
 
 <div class="canvas">
   <Canvas>
+    <Effects />
     <T.PerspectiveCamera makeDefault position={[0, 3, 5]} fov={20}>
       <OrbitControls enableZoom={true} target={[0, 0.9, 0]} enableDamping />
     </T.PerspectiveCamera>
