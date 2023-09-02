@@ -8,6 +8,7 @@ Command: npx @threlte/gltf@1.0.1 pausly new.glb --transform --types
   import { Group } from 'three'
   import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core'
   import { useGltf, useGltfAnimations } from '@threlte/extras'
+  import { dev } from '$app/environment'
 
   type $$Props = Props<THREE.Group>
   type $$Events = Events<THREE.Group>
@@ -61,7 +62,9 @@ Command: npx @threlte/gltf@1.0.1 pausly new.glb --transform --types
     materials: {}
   }
 
-  const gltf = useGltf<GLTFResult>('/pausly new-transformed.glb', { useDraco: true })
+  const gltf = useGltf<GLTFResult>((dev ? '/' : '/test/') + 'pausly new-transformed.glb', {
+    useDraco: true,
+  })
   export const { actions, mixer } = useGltfAnimations<ActionName>(gltf, ref)
   const fleshMaterial = new THREE.MeshToonMaterial({
     color: '#FFE893',
